@@ -26,7 +26,8 @@
   width: 150px;
 }
 
-.cart-item img {
+.cart-item img,
+.checkout-item img {
   height: 150px;
   width: 150px;
   object-fit: contain;

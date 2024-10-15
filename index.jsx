@@ -14,6 +14,7 @@ import CartProvider from "./pages/Cart/CartProvider";
 import AuthRequired from "./components/AuthRequired";
 import Login from "./pages/Profile/Login";
 import LoggedOut from "./pages/Profile/LoggedOut";
+import Checkout from "./pages/Cart/Checkout";
 
 if (process.env.NODE_ENV === "development") {
   makeServer();
@@ -34,6 +35,7 @@ function App() {
               <Route path="profile" element={<Profile />} />
             </Route>
             <Route path="logged-out" element={<LoggedOut />} />
+            <Route path="checkout" element={<Checkout />} />
           </Route>
         </Routes>
       </BrowserRouter>

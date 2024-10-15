@@ -5,13 +5,24 @@ import { CartContext } from "./CartProvider";
 import "./Cart.css";
 
 export default function CartPage() {
-  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } =
-    useContext(CartContext);
+  const {
+    cart,
+    removeFromCart,
+    increaseQuantity,
+    decreaseQuantity,
+    emptyCart,
+  } = useContext(CartContext);
   const calculateTotal = () => {
     return cart.reduce((total, item) => {
       return total + item.price * item.quantity;
     }, 0);
   };
+
+  const handleBuyNow = () => {
+    emptyCart();
+    alert("Thank you for shopping!");
+  };
+
   const cartElements = cart.map((item) => (
     <div key={item.id} className="cart-item">
       <Link to={`/groceries/${item.id}`}>
@@ -57,6 +68,9 @@ export default function CartPage() {
         <div className="checkout">
           <h2 className="checkout-title">Checkout</h2>
           <p>Total: ${calculateTotal().toFixed(2)}</p>
+          <Link to="/checkout">
+            <button>Buy now</button>
+          </Link>
         </div>
       </div>
     </div>
